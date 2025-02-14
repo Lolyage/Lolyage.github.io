@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lolyage光遇代肝服务</title>
+    <style>
+        :root {
+            --base-hue: 260;
+            --primary: hsl(var(--base-hue), 40%, 55%);
+            --background: hsl(var(--base-hue), 25%, 20%);
+            --text: hsl(var(--base-hue), 30%, 90%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text);
+            font-family: 'Microsoft YaHei', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transform: translateX(100vw);
+            opacity: 0;
+            animation: slideIn 0.8s forwards cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100vw); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features li,
+        .service-steps li {
+            opacity: 0;
+            transform: translateY(20px);
+            padding: 1rem;
+            margin: 1rem 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            border-left: 3px solid var(--primary);
+            animation: itemPopIn 0.6s forwards;
+        }
+
+        /* 修复服务流程列表样式 */
+        .service-steps {
+            list-style: none;
+            counter-reset: step-counter;
+            padding-left: 0;
+        }
+
+        .service-steps li {
+            counter-increment: step-counter;
+            position: relative;
+        }
+
+        .service-steps li::before {
+            content: counter(step-counter);
+            color: var(--primary);
+            font-weight: bold;
+            margin-right: 1rem;
+            background: rgba(255,255,255,0.1);
+            padding: 0.3rem 0.7rem;
+            border-radius: 50%;
+            display: inline-block;
+            min-width: 1.8em;
+            text-align: center;
+        }
+
+        @keyframes itemPopIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .highlight {
+            color: var(--primary);
+            font-size: 0.9em;
+            margin-left: 0.5rem;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-top: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 1rem 0;
+            }
+            
+            .card {
+                padding: 1.5rem;
+                margin: 1rem 0;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            .service-features li,
+            .service-steps li {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .service-steps li::before {
+                margin-right: 0.7rem;
+                padding: 0.2rem 0.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-button {
+                width: 100%;
+                text-align: center;
+                padding: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>光遇代肝服务</h1>
+        
+        <div class="card">
+            <h2>服务特色</h2>
+            <ul class="service-features">
+                <li>⏰ 即时响应 <span class="highlight">24小时在线</span></li>
+                <li>🔒 安全护航 <span class="highlight">账号保险机制</span></li>
+                <li>⚡ 高效执行 <span class="highlight">任务极速完成</span></li>
+                <li>💰 价格优势 <span class="highlight">超值套餐组合</span></li>
+            </ul>
+            <a href="https://qm.qq.com/q/cboR64BVao" class="cta-button">立即领取优惠</a>
+        </div>
+
+        <div class="card">
+            <h2>服务流程</h2>
+            <ol class="service-steps">
+                <li>联系客服确认需求</li>
+                <li>确定代肝定价</li>
+                <li>开始代肝服务</li>
+                <li>验收交付成果</li>
+            </ol>
+        </div>
+
+        <div class="card">
+            <h2>联系我们</h2>
+            <div class="contact-info">
+                <p>官方网站：<a href="http://guangyu.j3.ink/" style="color: var(--primary);">guangyu.j3.ink</a></p>
+                <p>客服QQ：3030085873</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 卡片动画控制
+            document.querySelectorAll('.card').forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.2}s`;
+            });
+
+            // 服务特色列表项动画
+            document.querySelectorAll('.service-features li').forEach((item, index) => {
+                item.style.animationDelay = `${0.6 + index * 0.15}s`;
+            });
+
+            // 服务流程列表项动画
+            document.querySelectorAll('.service-steps li').forEach((item, index) => {
+                item.style.animationDelay = `${0.8 + index * 0.15}s`;
+            });
+
+            // 价格提示动效
+            document.querySelectorAll('.highlight').forEach(item => {
+                item.addEventListener('mouseover', () => {
+                    item.style.transform = 'scale(1.05)';
+                    item.style.textShadow = `0 0 8px ${getComputedStyle(document.documentElement)
+                        .getPropertyValue('--primary')}`;
+                });
+                
+                item.addEventListener('mouseout', () => {
+                    item.style.transform = 'scale(1)';
+                    item.style.textShadow = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
