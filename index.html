@@ -173,33 +173,6 @@
                 padding: 0.8rem;
             }
         }
-        /* 默认不显示动画 */
-.card,
-.service-features li,
-.service-steps li {
-    opacity: 0;
-    transform: translateX(100vw);
-}
-
-/* 添加一个触发动画的类 */
-.card.animate,
-.service-features li.animate,
-.service-steps li.animate {
-    opacity: 1;
-    transform: translateX(0);
-    animation: slideIn 0.8s forwards cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-
-/* 保留原有的动画效果 */
-@keyframes slideIn {
-    from { transform: translateX(100vw); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes itemPopIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
     </style>
 </head>
 <body>
@@ -238,27 +211,10 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-    // 使用 IntersectionObserver 来检测元素是否进入视口
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
-                observer.unobserve(entry.target); // 只触发一次
-            }
-        });
-    }, { threshold: 0.5 });
-
-    // 对所有需要动画的元素进行观察
-    document.querySelectorAll('.card, .service-features li, .service-steps li').forEach(element => {
-        observer.observe(element);
-    });
-});
-        document.addEventListener('DOMContentLoaded', () => {
             // 卡片动画控制
             document.querySelectorAll('.card').forEach((card, index) => {
                 card.style.animationDelay = `${index * 0.2}s`;
             });
-            
 
             // 服务特色列表项动画
             document.querySelectorAll('.service-features li').forEach((item, index) => {
